@@ -1,0 +1,51 @@
+.list {
+  text-align: left;
+  max-width: 720px;
+  margin: auto;
+}
+
+.list-group-item {
+  display: block;
+  padding: 0 !important;
+  margin: 8px;
+  max-width: 224px;
+  color: #FFF;
+  background-color: #0A0A0A;
+  border-radius: 8px;
+
+  img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 100%;
+  }
+
+  .heart {
+    position: absolute;
+    z-index: 99;
+    top: 8px;
+    right: 8px;
+    width: 20px;
+    cursor: pointer;
+  }
+
+  span {
+    display: block;
+    padding: 8px;
+
+    p:first-child {
+      font-size: 24px;
+      font-family: "Creepster", system-ui;
+      margin-bottom: 0;
+    }
+
+    .species {
+      font-size: 16px;
+      color: #A4A4A4;
+    }
+  }
+}
+
+.form-control {
+  max-width: 328px;
+  border-radius: 12px !important;
+}

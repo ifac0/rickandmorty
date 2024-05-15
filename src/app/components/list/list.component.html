@@ -1,0 +1,36 @@
+<div class="list row">
+  <div class="col-md-12">
+    <div class="input-group justify-content-between mb-3">
+      <img [src]="filterPage == 'home' ? 'assets/title.png' : 'assets/title-favorite.png'">
+
+      <form [formGroup]="form">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Pesquisar"
+          formControlName="search"
+        />
+      </form>
+    </div>
+  </div>
+  <div
+    class="list-group-item col-md-4"
+    *ngFor="let item of list; trackBy:identify"
+  >
+    <img [src]="item.image">
+    <img
+      class="heart"
+      (click)="setFavorite(item)"
+      [src]="isFavorite(item?.id) ? 'assets/heart.png' : 'assets/empty-heart.png'"
+    >
+    <span>
+      <p>
+        {{ item?.name }}
+      </p>
+      <p class="species">
+        {{ item?.species }}
+      </p>
+    </span>
+
+  </div>
+</div>
