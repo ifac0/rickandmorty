@@ -1,9 +1,9 @@
 <div class="list row">
   <div class="col-md-12">
-    <div class="input-group justify-content-between mb-3">
+    <div class="input-group align-items-center justify-content-between mb-3">
       <img [src]="filterPage == 'home' ? 'assets/title.png' : 'assets/title-favorite.png'">
 
-      <form [formGroup]="form">
+      <form [formGroup]="form" *ngIf="filterPage == 'home'">
         <input
           type="text"
           class="form-control"
@@ -13,24 +13,36 @@
       </form>
     </div>
   </div>
-  <div
-    class="list-group-item col-md-4"
-    *ngFor="let item of list; trackBy:identify"
-  >
-    <img [src]="item.image">
-    <img
-      class="heart"
-      (click)="setFavorite(item)"
-      [src]="isFavorite(item?.id) ? 'assets/heart.png' : 'assets/empty-heart.png'"
+  <ng-container *ngIf="list && list.length > 0; else other">
+    <div
+      class="list-group-item col-md-4"
+      *ngFor="let item of list; trackBy:identify"
     >
-    <span>
-      <p>
-        {{ item?.name }}
+      <img [src]="item.image">
+      <img
+        class="heart"
+        (click)="setFavorite(item)"
+        [src]="isFavorite(item?.id) ? 'assets/heart.png' : 'assets/empty-heart.png'"
+      >
+      <span>
+        <p>
+          {{ item?.name }}
+        </p>
+        <p class="species">
+          {{ item?.species }}
+        </p>
+      </span>
+    </div>
+  </ng-container>
+  <ng-template #other>
+    <div class="not-found">
+      <p class="title">
+        {{ filterPage == 'home' ? 'Nada foi encontrado' : 'Parece que você ainda não tem favoritos'}}
       </p>
-      <p class="species">
-        {{ item?.species }}
-      </p>
-    </span>
+     <p>
+       {{ filterPage == 'home' ? 'Tente realizar uma nova busca.' : 'Volte à página inicial e escolha os melhores para você.'}}
 
-  </div>
+     </p>
+    </div>
+  </ng-template>
 </div>

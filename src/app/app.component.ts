@@ -17,6 +17,8 @@ export class AppComponent {
     private cacheQuery: CacheQuery,
     private cacheService: CacheService
   ) {
+    this.cacheService.setType('Home');
+
     this.count$ = this.cacheQuery.select()
       .pipe(
         share(),

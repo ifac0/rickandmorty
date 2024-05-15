@@ -2,6 +2,8 @@
   text-align: left;
   max-width: 720px;
   margin: auto;
+
+  display: flex;
 }
 
 .list-group-item {
@@ -45,7 +47,44 @@
   }
 }
 
+.not-found {
+  width: 720px;
+  height: 500px;
+  background-color: #0A0A0A;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  border: 1px solid #3D3D3D;
+  border-radius: 12px;
+
+  p {
+    font-size: 18px;
+    color: #A4A4A4;
+  }
+
+  .title {
+    font-size: 24px;
+    color: #FAFAFA;
+    font-weight: bold;
+  }
+}
+
 .form-control {
   max-width: 328px;
   border-radius: 12px !important;
+}
+
+@media screen and (max-width: 510px) {
+  .list {
+    justify-content: center;
+  }
+
+  .input-group {
+    img, form {
+      margin: auto;
+    }
+  }
 }

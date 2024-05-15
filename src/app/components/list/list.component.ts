@@ -5,7 +5,6 @@ import {
   catchError,
   debounceTime,
   distinctUntilChanged,
-  Observable,
   of,
   share,
   startWith,
@@ -105,7 +104,7 @@ export class ListComponent implements OnInit, OnDestroy {
     return this.cacheService.isFavorite(id);
   }
 
-  identify(index: number, item: any){
+  identify(item: any){
     return item.id;
   }
 

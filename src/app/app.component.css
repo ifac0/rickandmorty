@@ -39,3 +39,9 @@
 }
 
 
+@media screen and (max-width: 400px) {
+  .navbar {
+    flex-direction: column;
+    height: 140px;
+  }
+}
